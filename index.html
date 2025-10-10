@@ -90,6 +90,14 @@
             margin-left: 1.5rem;
         }
 
+        .nav-links li.mobile-social {
+            margin-left: 0;
+            margin-top: 1rem;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
         .nav-links a {
             color: white;
             font-weight: 500;
@@ -449,6 +457,23 @@
                 transition: left 0.3s ease;
             }
 
+            .mobile-social-nav {
+                display: flex;
+                gap: 1rem;
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .mobile-social-nav a {
+                color: white;
+                font-size: 1.5rem;
+                transition: color 0.3s;
+            }
+
+            .mobile-social-nav a:hover {
+                color: var(--secondary-color);
+            }
+
             .nav-links.active {
                 left: 0;
             }
@@ -468,8 +493,9 @@
             .hero {
                 height: 60vh;
                 padding: 0 1rem;
+                background-image: url('./test2.jpg');
                 background-size: cover;
-                background-position: center 40%;
+                background-position: center;
                 background-attachment: scroll;
             }
 
@@ -598,9 +624,9 @@
             height: 70vh;
             background:
                 /* linear-gradient(rgba(87, 40, 40, 0.7), rgba(87, 40, 40, 0.7)),  */
-                url('./test2.jpg');
+                url('./test.jpg');
             background-size: cover;
-            background-position: center 30%;
+            background-position: center;
             background-repeat: no-repeat;
             background-attachment: scroll;
             color: white;
@@ -646,10 +672,16 @@
                         <li><a href="#about">About</a></li>
                         <li><a href="#gallery">Gallery</a></li>
                         <li><a href="#contact">Contact</a></li>
+                        <li class="mobile-social">
+                            <div class="mobile-social-nav">
+                                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                                <a href="#" title="Spotify"><i class="fab fa-spotify"></i></a>
+                            </div>
+                        </li>
                     </ul>
                 </div>
                 <div class="social-nav">
-                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
                     <a href="#" title="Spotify"><i class="fab fa-spotify"></i></a>
