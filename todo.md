@@ -1,7 +1,7 @@
 TODO:
-- social links ook rechts boven
-- banner moet rechts allignen
-- onderin bij Get In Touch een download link naar de perslink
+- add social links to the top right banner
+- banner should allign to the right
+- there should also be a Get In Touch button and button for the press information on the bottom of the page
 
 
 volgorde:
