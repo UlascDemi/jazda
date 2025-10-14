@@ -441,13 +441,19 @@
             .menu-toggle {
                 display: flex;
                 align-self: center;
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .logo {
+                margin-left: auto;
             }
 
             .nav-links {
                 position: fixed;
                 top: 60px;
-                left: -100%;
-                width: 100%;
+                left: -50%;
+                width: 50%;
                 height: calc(100vh - 60px);
                 background-color: var(--primary-color);
                 flex-direction: column;
@@ -491,19 +497,16 @@
             }
 
             .hero {
-                height: 50vh;
+                height: 40vh;
                 padding: 0 1rem;
-                background-image: url('./test2.jpg');
-                background-size: cover;
-                background-position: center;
+                background-size: 100% auto;
+                background-position: center top;
                 background-attachment: scroll;
             }
 
             @media (max-width: 480px) {
                 .hero {
-                    background-size: cover;
                     background-position: center 50%;
-                    background-attachment: scroll;
                 }
             }
 
@@ -628,7 +631,7 @@
             height: 70vh;
             background:
                 /* linear-gradient(rgba(87, 40, 40, 0.7), rgba(87, 40, 40, 0.7)),  */
-                url('./test.jpg');
+                url('./test2.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -655,6 +658,25 @@
             position: relative;
             z-index: 1;
         }
+
+        /* Desktop/Tablet Styles (default) */
+        @media (min-width: 769px) {
+            .hero {
+                background-image: url('./test2.jpg');
+            }
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .hero {
+                background-image: url('./test.jpg');
+                background-size: 100% auto;
+                background-position: center top;
+                background-attachment: scroll;
+                height: auto;
+                min-height: 50vh;
+            }
+        }
     </style>
 </head>
 
@@ -662,13 +684,13 @@
     <header>
         <div class="container">
             <nav>
+                <div class="menu-toggle" id="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 <div class="nav-left">
                     <div class="logo">JAZ<span>DA</span></div>
-                    <div class="menu-toggle" id="mobile-menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
                     <ul class="nav-links" id="nav-links">
                         <li><a href="#home">Home</a></li>
                         <li><a href="#news">News</a></li>
@@ -676,13 +698,6 @@
                         <li><a href="#about">About</a></li>
                         <li><a href="#gallery">Gallery</a></li>
                         <li><a href="#contact">Contact</a></li>
-                        <li class="mobile-social">
-                            <div class="mobile-social-nav">
-                                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-                                <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
-                                <a href="#" title="Spotify"><i class="fab fa-spotify"></i></a>
-                            </div>
-                        </li>
                     </ul>
                 </div>
                 <div class="social-nav">
@@ -804,7 +819,6 @@
                 <p>Want to book us for a show or just say hello? Reach out through any of our social media channels or
                     send us an email.</p>
                 <div class="social-links">
-                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                     <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
                     <a href="#" class="social-icon"><i class="fab fa-spotify"></i></a>
@@ -841,6 +855,14 @@
                 navLinks.classList.remove('active');
                 mobileMenu.classList.remove('active');
             });
+        });
+
+        // Close menu when clicking outside of it
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            }
         });
 
         // Smooth scrolling for navigation links
